@@ -1,5 +1,4 @@
 import { galleryItems } from './gallery-items.js';
-console.log(galleryItems);
 
 const gallery = document.querySelector('.gallery')
 
@@ -25,9 +24,9 @@ function createGallery(pictures) {
 function onGalleryItemClick(event) {
     event.preventDefault();
 
-    if (event.target.nodeName !== "IMG") {
+    if (event.target.nodeName !== 'IMG') {
         return;
-    }
+    };
 
     const originalUrl = event.target.dataset.source;
 
