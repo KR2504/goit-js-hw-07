@@ -12,7 +12,7 @@ function createGallery(pictures) {
     return pictures.map(({ preview, original, description }) => {
         return `<div class="gallery__item">
             <a class="gallery__link"
-        href="${original}" onclick="event.preventDefault()">
+        href="${original}">
             <img class="gallery__image"
         src="${preview}"
         data-source="${original}"
@@ -23,6 +23,11 @@ function createGallery(pictures) {
 }
 
 function onGalleryItemClick(event) {
+    event.preventDefault();
+
+    if (event.target.nodeName !== "IMG") {
+        return;
+    }
 
     const originalUrl = event.target.dataset.source;
 
